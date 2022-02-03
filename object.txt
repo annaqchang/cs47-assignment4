@@ -1,0 +1,170 @@
+NOTES:
+
+index: first item in the object
+song name: item > name 
+album cover: item > album > images > url
+artist name: item > album > artists > name
+album name: item > album > name
+length: item > duration_ms
+
+
+Object {
+
+  *** INDEX
+  "index": 0,
+
+  "item": Object {
+    "album": Object {
+      "album_type": "SINGLE",
+
+      ***ARTISTS
+      "artists": Array [
+        Object {
+          "external_urls": Object {
+            "spotify": "https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of",
+          },
+          "href": "https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of",
+          "id": "0LyfQWJT6nXafLPZqxe9Of",
+          *** ARTISTNAME
+          "name": "Various Artists",
+          "type": "artist",
+          "uri": "spotify:artist:0LyfQWJT6nXafLPZqxe9Of",
+        },
+      ],
+
+
+      "available_markets": Array [
+        "AD",
+        ...
+        "ZA",
+      ],
+      "external_urls": Object {
+        "spotify": "https://open.spotify.com/album/3naaXqEfJnwlSqyFshTwlF",
+      },
+      "href": "https://api.spotify.com/v1/albums/3naaXqEfJnwlSqyFshTwlF",
+      "id": "3naaXqEfJnwlSqyFshTwlF",
+
+      *** ALBUMIMAGE
+      "images": Array [
+        Object {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b27388875b7da0c52eb5c3630973",
+          "width": 640,
+        },
+        Object {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e0288875b7da0c52eb5c3630973",
+          "width": 300,
+        },
+        Object {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d0000485188875b7da0c52eb5c3630973",
+          "width": 64,
+        },
+      ],
+
+      ***ALBUMNAME
+      "name": "Dingo X Ambition Musik",
+      "release_date": "2019-06-28",
+      "release_date_precision": "day",
+      "total_tracks": 1,
+      "type": "album",
+      "uri": "spotify:album:3naaXqEfJnwlSqyFshTwlF",
+    },
+
+    "artists": Array [
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/3hvinNZRzTLoREmqFiKr1b",
+        },
+        "href": "https://api.spotify.com/v1/artists/3hvinNZRzTLoREmqFiKr1b",
+        "id": "3hvinNZRzTLoREmqFiKr1b",
+        "name": "CHANGMO",
+        "type": "artist",
+        "uri": "spotify:artist:3hvinNZRzTLoREmqFiKr1b",
+      },
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/3yVEZNS0ateVfoj8FuazKg",
+        },
+        "href": "https://api.spotify.com/v1/artists/3yVEZNS0ateVfoj8FuazKg",
+        "id": "3yVEZNS0ateVfoj8FuazKg",
+        "name": "Hash Swan",
+        "type": "artist",
+        "uri": "spotify:artist:3yVEZNS0ateVfoj8FuazKg",
+      },
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/7IEhlwWQA7pCkEvzwwHehE",
+        },
+        "href": "https://api.spotify.com/v1/artists/7IEhlwWQA7pCkEvzwwHehE",
+        "id": "7IEhlwWQA7pCkEvzwwHehE",
+        "name": "ASH ISLAND",
+        "type": "artist",
+        "uri": "spotify:artist:7IEhlwWQA7pCkEvzwwHehE",
+      },
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/59KuGY6nfY3w39O0qYVA7p",
+        },
+        "href": "https://api.spotify.com/v1/artists/59KuGY6nfY3w39O0qYVA7p",
+        "id": "59KuGY6nfY3w39O0qYVA7p",
+        "name": "Keem Hyo-Eun",
+        "type": "artist",
+        "uri": "spotify:artist:59KuGY6nfY3w39O0qYVA7p",
+      },
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/79g2STpP2iV1xfgHuhrhX0",
+        },
+        "href": "https://api.spotify.com/v1/artists/79g2STpP2iV1xfgHuhrhX0",
+        "id": "79g2STpP2iV1xfgHuhrhX0",
+        "name": "Leellamarz",
+        "type": "artist",
+        "uri": "spotify:artist:79g2STpP2iV1xfgHuhrhX0",
+      },
+      Object {
+        "external_urls": Object {
+          "spotify": "https://open.spotify.com/artist/2qI1pO64eYqGUiv1XTw4cy",
+        },
+        "href": "https://api.spotify.com/v1/artists/2qI1pO64eYqGUiv1XTw4cy",
+        "id": "2qI1pO64eYqGUiv1XTw4cy",
+        "name": "The Quiett",
+        "type": "artist",
+        "uri": "spotify:artist:2qI1pO64eYqGUiv1XTw4cy",
+      },
+    ],
+    "available_markets": Array [
+      "AD",
+      ...
+      "ZA",
+    ],
+    "disc_number": 1,
+
+    *** DURATIONMS
+    "duration_ms": 240717,
+    "explicit": false,
+    "external_ids": Object {
+      "isrc": "KRA381903430",
+    },
+    "external_urls": Object {
+      "spotify": "https://open.spotify.com/track/3w9HSuLDejveVS9G8Qj8i0",
+    },
+    "href": "https://api.spotify.com/v1/tracks/3w9HSuLDejveVS9G8Qj8i0",
+    "id": "3w9HSuLDejveVS9G8Qj8i0",
+    "is_local": false,
+
+    ***SONGNAME
+    "name": "Beer (Prod.Way Ched)",
+    "popularity": 46,
+    "preview_url": "https://p.scdn.co/mp3-preview/5009619265ba58ac78df454b75992300ced7dfd1?cid=31da0f1dfcc7440faefc3c446b2d7a60",
+    "track_number": 1,
+    "type": "track",
+    "uri": "spotify:track:3w9HSuLDejveVS9G8Qj8i0",
+  },
+  "separators": Object {
+    "highlight": [Function highlight],
+    "unhighlight": [Function unhighlight],
+    "updateProps": [Function updateProps],
+  },
+} 

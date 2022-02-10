@@ -7,6 +7,9 @@ import Colors from "./Themes/colors";
 import images from "./Themes/images";
 import Song from "./Song";
 import millisToMinutesAndSeconds from "./utils/millisToMinuteSeconds";
+import { WebView } from "react-native-webview";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // Endpoints for authorizing with Spotify
 const discovery = {
@@ -14,8 +17,9 @@ const discovery = {
   tokenEndpoint: "https://accounts.spotify.com/api/token"
 };
 
-export default function App() {
+const Stack = createStackNavigator();
 
+function Screen1({ navigation }) {
   const [token, setToken] = useState("");
   const [tracks, setTracks] = useState([]);
   const [request, response, promptAsync] = useAuthRequest(
@@ -47,14 +51,18 @@ export default function App() {
 
   const renderItem = (item) => {
     return (
-      <Song
-        preview_url={item.item.album.images[0].url}
-        name={item.item.name}
-        artists={item.item.album.artists[0].name}
-        id={item.index}
-        album={item.item.album.name}
-        duration_ms={millisToMinutesAndSeconds(item.item.duration_ms)}
-      />
+      <Pressable onPress={() => navigation.navigate('Screen2',{current: item})}>
+        <Song
+          navigation={navigation}
+          item={item}
+          preview_url={item.item.album.images[0].url}
+          name={item.item.name}
+          artists={item.item.album.artists[0].name}
+          album={item.item.album.name}
+          duration_ms={millisToMinutesAndSeconds(item.item.duration_ms)}
+        />
+
+      </Pressable>
     )
   }
 
@@ -80,7 +88,7 @@ export default function App() {
       </View>
     );
   }
- 
+  
   const MyList = () => {
     return (
       <View>
@@ -123,6 +131,45 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
+function Screen2({ route, navigation }) {
+  return (
+    <View style={{flex: 1, flexDirection:'column'}}>
+      <Pressable title="Go Back" onPress={() => navigation.goBack()}/>
+      <WebView source={{ uri: route.params.current.item.external_urls.spotify }} />
+    </View>
+  );
+}
+
+function Screen3({ route, navigation }) {
+  return (
+    <View style={{flex: 1, flexDirection:'column'}}>
+      <Pressable title="Go Back" onPress={() => navigation.goBack()}/>
+      <WebView source={{ uri: route.params.current.item.preview_url }} />
+    </View>
+  )
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Back" component={Screen1} options={{headerShown: false}} />
+      <Stack.Screen 
+        name="Screen2" 
+        component={Screen2}
+        options={{ title: 'Song Details' }} 
+      />
+      <Stack.Screen 
+        name="Screen3" 
+        component={Screen3} 
+        options={{ title: 'Song Preview' }} 
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+  )
+}
+
 
 const styles = StyleSheet.create({
   container: {

@@ -5,8 +5,8 @@ song name: item > name
 album cover: item > album > images > url
 artist name: item > album > artists > name
 album name: item > album > name
-length: item > duration_ms
-
+length: item > duration_ms 
+external_urls: item > album > artists > external_urls > spotify
 
 Object {
 

@@ -1,41 +1,49 @@
 import { buildCodeAsync } from 'expo-auth-session/build/PKCE';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import Colors from "./Themes/colors";
+import { Ionicons } from '@expo/vector-icons';
  
-export default function Song({ preview_url, name, artists, id, album, duration_ms }) {
+export default function Song({ preview_url, name, artists, album, duration_ms, navigation, item }) {
  return (
-   <View style={styles.bigbox}>
-    <View style={styles.id}>
-      <Text style={styles.text}>{id + 1}</Text>
-    </View>
-    <View style={styles.imagebox}>
-      <Image style={styles.image} source={{uri: String(preview_url)}}></Image> 
-    </View>
-    <View style={styles.nameartist}>
-      <View>
-        <Text numberOfLines={1} style={styles.text}>{name}</Text>
+    <View style={styles.bigbox}>
+      <Pressable
+        onPress={(e) => {
+        e.stopPropagation();
+        navigation.navigate('Screen3', {current: item})
+        }}
+      >
+        <View>
+          <Ionicons name="play-circle" size={23} color={Colors.spotify} />
+        </View>
+      </Pressable>
+      <View style={styles.imagebox}>
+        <Image style={styles.image} source={{uri: String(preview_url)}}></Image> 
       </View>
-      <View>
-        <Text style={styles.artisttext}>{artists}</Text>
+      <View style={styles.nameartist}>
+        <View>
+          <Text numberOfLines={1} style={styles.text}>{name}</Text>
+        </View>
+        <View>
+          <Text style={styles.artisttext}>{artists}</Text>
+        </View>
+      </View>
+      <View style={styles.album}>
+        <Text numberOfLines={1} style={styles.text}>{album}</Text>
+      </View>
+      <View style={styles.duration_ms}>
+        <Text style={styles.text}>{duration_ms}</Text>
       </View>
     </View>
-    <View style={styles.album}>
-      <Text numberOfLines={1} style={styles.text}>{album}</Text>
-    </View>
-    <View style={styles.duration_ms}>
-      <Text style={styles.text}>{duration_ms}</Text>
-    </View>
-   </View>
  );
 }
 const styles = StyleSheet.create({
   bigbox: {
     alignItems: 'center',
-    width: '95%',
-    flex: 1,
+    width: '92%',
     flexDirection: 'row',
+    marginLeft: 2,
   },
   text: {
     color: Colors.gray,
@@ -47,15 +55,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '300'
   },
-  id: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '7%',
-  },
   imagebox: {
     width: '18%',
-    marginBottom: 7,
-    marginRight: 5,
+    marginBottom: 8,
+    marginRight: 8,
+    marginLeft: 8,
   },
   image: {
     width: 65,
